@@ -35,18 +35,19 @@ It is a simple sticky note project where user can simply add and delete sticky n
 
 **Adding note** 
 Error messages will be prompted to user for following actions.
-- user cannot add note with empty title and content.
-- user cannot enter more than 10 words in title and 30 words in content
+- User cannot add note with empty title and content.
+- User cannot enter more than 10 words in title and 30 words in content
 
 **Searching for note**
-- user can find the notes by the title
-- the search is immediate as you type regardless of upper and lower case
+- User can find the notes by the title
+- Search is immediate as user types regardless of upper and lower case
+- Search will return No Result if matching word is not found
 
 **Deleting note**
-- user will be prompted verification popup window to confirm delete action
+- User will be prompted verification popup window to confirm delete action
 - Deleted notes cannot be recovered
 
-**Limitations**
+**Limitations: **
 Since the project has no backend and DB, all data will be refreshed to initial state when the page is reloaded. There are 4 sample sticky notes at the initial state. There is no edit feature of the notes as per test instruction. 
 
 License
