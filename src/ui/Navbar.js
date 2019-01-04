@@ -10,7 +10,8 @@ class Navbar extends Component {
         this.state = {
             title: "",
             content: "",
-            textOverLimit: false
+            textOverLimit: false,
+            titleOverLimit: false
         }
         this.handleChangeTitle = this.handleChangeTitle.bind(this)
         this.handleChangeContent = this.handleChangeContent.bind(this)
@@ -21,7 +22,14 @@ class Navbar extends Component {
     }
     
     handleChangeTitle(event) { 
-        this.setState({title: event.target.value}) 
+        const value = event.target.value;
+        const numOfWords = value.split(' ').length
+        if(numOfWords > 10) {
+            this.setState({titleOverLimit: true})
+        } else {
+            this.setState({titleOverLimit: false})
+        }
+        this.setState({title: value}) 
     }
 
     handleChangeContent(event) { 
@@ -32,19 +40,19 @@ class Navbar extends Component {
         } else {
             this.setState({textOverLimit: false})
         }
-        this.setState({content: event.target.value}); 
+        this.setState({content: value}); 
     }
 
     handleSubmit(event) {
         event.preventDefault();
         const { title, content } = this.state;
-        if(this.state.textOverLimit) {
+        if(this.state.textOverLimit || this.state.titleOverLimit) {
             swal({
                 text: 'Number of words is more than 30.',
                 icon: 'error'
             })
         }
-        if(title === "" || content === "") {
+        else if(title === "" || content === "") {
             swal({
                 text: 'Title or Content is empty. Please fill in and add again.',
                 icon: 'error'
@@ -74,7 +82,8 @@ class Navbar extends Component {
                     <div className="container">
                         
                         <label>
-                            Title:<input type="text" value={this.state.title} onChange={this.handleChangeTitle} />
+                            Title: (Max 10 words) {this.state.titleOverLimit ? <span style={{color: 'red'}}>Over Limit</span> : ''}
+                            <input type="text" value={this.state.title} onChange={this.handleChangeTitle} />
                         </label>
 
                         <label>
