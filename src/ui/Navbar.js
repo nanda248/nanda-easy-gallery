@@ -68,7 +68,8 @@ class Navbar extends Component {
             <nav style={{background: '#464954'}}>
                 <div>
                 <div className="brand-logo" style={{marginLeft: '10px'}}>
-                    <img src="sticky_note_logo.png" alt="sticky note logo" className="img-responsive" style={{width: '40px'}} /> &nbsp;Sticky Note
+                    <img src="sticky_note_logo.png" alt="sticky note logo" className="img-responsive" style={{width: '40px'}} /> 
+                    &nbsp;My Gallery App
                 </div>
                 <ul className="right hide-on-med-and-down">
                     <li><button data-target="modal1" className="btn modal-trigger" style={{background: '#7D89BC', marginRight: '10px'}}>Add New Note</button></li>
