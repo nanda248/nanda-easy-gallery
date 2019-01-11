@@ -43,63 +43,20 @@ class Navbar extends Component {
         this.setState({content: value}); 
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        const { title, content } = this.state;
-        if(this.state.textOverLimit || this.state.titleOverLimit) {
-            swal({
-                text: 'Number of words is more than 30.',
-                icon: 'error'
-            })
-        }
-        else if(title === "" || content === "") {
-            swal({
-                text: 'Title or Content is empty. Please fill in and add again.',
-                icon: 'error'
-            })
-        } else {
-            this.setState({ title: "", content: ""})
-            this.props.addNewNote(title,content)
-        }
-    }
-
     render() {
         return(
             <nav style={{background: '#464954'}}>
                 <div>
                 <div className="brand-logo" style={{marginLeft: '10px'}}>
-                    <img src="sticky_note_logo.png" alt="sticky note logo" className="img-responsive" style={{width: '40px'}} /> 
+                    <img src="gallery_logo.png" alt="sticky note logo" className="img-responsive" style={{width: '40px'}} /> 
                     &nbsp;My Gallery App
                 </div>
                 <ul className="right hide-on-med-and-down">
-                    <li><button data-target="modal1" className="btn modal-trigger" style={{background: '#7D89BC', marginRight: '10px'}}>Add New Note</button></li>
+                    <li><button className="btn" style={{background: '#7D89BC', marginRight: '10px'}}>Add New Note</button></li>
                 </ul>
                 </div>
 
-                {/* modal */}
-                <div id="modal1" className="modal">     
-                    <h4 style={{color: colors.darkOrange, textAlign: 'center', marginTop: '10px'}}>Add New Note</h4>  
-                    <form onSubmit={this.handleSubmit}>    
-                    <div className="container">
-                        
-                        <label>
-                            Title: (Max 10 words) {this.state.titleOverLimit ? <span style={{color: 'red'}}>Over Limit</span> : ''}
-                            <input type="text" value={this.state.title} onChange={this.handleChangeTitle} />
-                        </label>
-
-                        <label>
-                            Content: (Max 30 words) {this.state.textOverLimit ? <span style={{color: 'red'}}>Over Limit</span> : ''}
-                            <textarea value={this.state.content} onChange={this.handleChangeContent} />
-                        </label>
-
-                    </div>
-
-                    <div className="modal-footer" style={{textAlign: 'center', paddingBottom: '50px'}}>
-                        <a href="#" className="modal-close waves-effect btn">Cancel</a> &nbsp;
-                        <a href="#" className="waves-effect btn" onClick={this.handleSubmit.bind(this)}>Add</a>
-                    </div>
-                    </form>
-                </div>
+                
 
             </nav>
         )

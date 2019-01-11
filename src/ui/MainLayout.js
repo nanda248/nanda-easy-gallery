@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SingleNote from './SingleNote';
+import SingleImage from './SingleImage';
 import data from '../data/sampleData';
 import swal from 'sweetalert';
 import Navbar from './Navbar';
@@ -16,58 +16,7 @@ class MainLayout extends Component {
             searchResult: [],
             images: null
         }
-
-        this.addNewNote = this.addNewNote.bind(this);
-        this.deleteNote = this.deleteNote.bind(this);
         this.handleSearchValue = this.handleSearchValue.bind(this);
-    }
-
-    componentDidMount() {
-        // axios.get(`https://api.giphy.com/v1/gifs/search`,{
-        //     params: {
-        //         api_key: 'pDGxHY4YaW5bLvNNXt0SSxJnK1z0y9Z3',
-        //         q: 'liverpool'
-        //     }
-        // })
-        // .then(res => {
-        //     console.log("successful res: ", res.data)
-        //     const images = res.data;
-        //     this.setState({ images: images.data });
-        // })
-    }
-
-    addNewNote(title, content) {
-        const { notes } = this.state;
-        const newNote = {
-            id: notes.length+1,
-            title,
-            content
-        }
-        swal({
-            text: "Added!",
-            icon: "success",
-          });
-        notes.push(newNote)
-        this.setState({notes: notes})
-    }
-
-    deleteNote(id) {
-        const { notes } = this.state;
-        const index = notes.findIndex((note) => note.id === id)
-        notes.splice(index, 1);
-        this.setState({ notes })
-    }
-
-    renderNotes() {
-        const { notes, searchResult, searchValue } = this.state;
-        if(searchValue !== "" && searchResult.length === 0) {
-            return <h4>No Matching Result</h4>
-        }
-
-        const shownNotes = searchResult.length===0 ? notes : searchResult;
-        return shownNotes.map((note) => {
-            return <SingleNote key={note.id} id={note.id} title={note.title} content={note.content} deleteNote={this.deleteNote}/>
-        })
     }
 
     renderImages() {
@@ -90,11 +39,6 @@ class MainLayout extends Component {
     handleSearchValue(event) {
         const value = event.target.value;
         this.setState({searchValue: value})
-        // const { notes } = this.state;
-        // const result = notes.filter((note) => {
-        //     return note.title.toLowerCase().includes(value.toLowerCase())
-        // })
-        // this.setState({searchResult: result})
         axios.get(`https://api.giphy.com/v1/gifs/search`,{
             params: {
                 api_key: 'pDGxHY4YaW5bLvNNXt0SSxJnK1z0y9Z3',
@@ -106,10 +50,12 @@ class MainLayout extends Component {
             const images = res.data;
             this.setState({ images: images.data });
         })
+        .catch((error) => {
+            console.log(error);
+        })
     }
 
     render() {
-        console.log("Images: ", this.state.images)
         return (
             <div>
                 <Navbar addNewNote={this.addNewNote}/>
@@ -122,7 +68,6 @@ class MainLayout extends Component {
             
                 </div>
                 <div className="row container">
-                    {/* {this.renderNotes()} */}
                     {this.renderImages()}
                 </div>
             </div>

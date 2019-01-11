@@ -3,7 +3,7 @@ import colors from '../data/colors';
 import './layout.css';
 import swal from 'sweetalert';
 
-class SingleNote extends Component {
+class SingleImage extends Component {
 
     handleDelete(id) {
         swal({
@@ -38,4 +38,4 @@ class SingleNote extends Component {
     }
 }
 
-export default SingleNote;
+export default SingleImage;
