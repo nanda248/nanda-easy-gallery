@@ -1,4 +1,4 @@
-# Sticky Node made by Nan Da
+# Giphy Photo Search Engine by Nan Da
 
 This is a technical assessment requested by 2359 Media Pte Ltd.
 Main functionalities of this project include:
