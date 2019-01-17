@@ -1,10 +1,9 @@
 # Sticky Node made by Nan Da
 
-This is a technical assessment requested by Maltem Consulting Group (Singapore). This project was developed in regard of https://github.com/TheodoreGC/sticky-note.
+This is a technical assessment requested by 2359 Media Pte Ltd.
 Main functionalities of this project include:
-  - Add new note with title and content
-  - Find note by the title
-  - Delete note
+  - Search images from Giphy by keywords
+  - Favorite image that you want
 
 ## Technology Stack
 The project was developed using below libraries and frameworks:
@@ -18,38 +17,25 @@ Versions during this project development: NodeJS v8.11.4 & npm 6.4.1
 
 Clone the repo:
 ```
-git clone https://github.com/nanda248/nanda-sticky-note.git
+git clone https://github.com/nanda248/nanda-easy-gallery.git
 ```
 
 Install the dependencies and start the server:
 
 ```sh
-$ cd nanda-sticky-note
+$ cd nanda-easy-gallery
 $ npm install
 $ npm start
 ```
 Then the server should be running on http://localhost:3000/
 
 ### Peoject Summary
-It is a simple sticky note project where user can simply add and delete sticky notes.
+It is a simple POC front-end web app where user can search images by keywords from Giphy.
 
-**Adding note** 
-Error messages will be prompted to user for following actions.
-- User cannot add note with empty title and content.
-- User cannot enter more than 10 words in title and 30 words in content
-
-**Searching for note**
-- User can find the notes by the title
-- Search is immediate as user types regardless of upper and lower case
-- Search will return No Result if matching word is not found
-
-**Deleting note**
-- User will be prompted verification popup window to confirm delete action
-- Deleted notes cannot be recovered
-
-**Limitations: **
-Since the project has no backend and DB, all data will be refreshed to initial state when the page is reloaded. There are 4 sample sticky notes at the initial state. There is no edit feature of the notes as per test instruction. 
+**Limitations**
+Since the project has no backend and DB, all data will be refreshed to initial state when the page is reloaded. There are no state management library and routers used because it is a single page application with very minimal state manipulation. 
 
 License
 ----
 Copyright of NanDa
+

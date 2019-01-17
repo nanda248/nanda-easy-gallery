@@ -33,7 +33,7 @@ class MainLayout extends Component {
                 const { url } = image.images.fixed_width_still;
                 const { id } = image;
                 return (
-                    <div className="col s6 m3 thumb" 
+                    <div className="col s6 m3 l3 thumb" 
                         key={index} 
                         onMouseEnter={() => this.setState({showIcon: id})}
                         onMouseLeave={() => this.setState({showIcon: ''})}
