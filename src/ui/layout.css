@@ -1,11 +1,17 @@
-.card {
-    border-top: 8px solid #AA6A2C;
+.thumb {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  /* margin: 5px; */
+  border: 2px solid #c99;
+  background-position: center center;
+  background-size: cover;
 }
 
-.swal-footer {
-    text-align: center;
+.icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
 }
-
-/* .gif_player img {
-    border: 3px solid cornflowerblue;
-} */
