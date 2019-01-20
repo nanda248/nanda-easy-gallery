@@ -10,6 +10,7 @@ The project was developed using below libraries and frameworks:
 * [ReactJS](https://reactjs.org/) - A Javascript library for building user interfaces
 * [Materialize](https://materializecss.com/) - A modern responsive front-end framework based on material design
 * [sweetalert](https://sweetalert.js.org/) - A library to display error and warning popups beautifully
+* [axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node
 
 ### Installation and Setup
 The project requires [Node.js](https://nodejs.org/) to run.
