@@ -13,7 +13,6 @@ class MainLayout extends Component {
             searchValue: '',
             searchResult: [],
             images: null,
-            searchType: 'image',
             searchingPreloader: false,
             numOfImages: 8,
             showIcon: [],
@@ -24,6 +23,7 @@ class MainLayout extends Component {
         this.handleFavorite = this.handleFavorite.bind(this);
     }
 
+    // Rendering Components
     renderImages() {
         const { images, numOfImages } =this.state;
         if(images === null) {
@@ -57,15 +57,6 @@ class MainLayout extends Component {
         }
     }
 
-    checkFavImg(id) {
-        const foundId = this.findImageById(id)
-        if(foundId === -1) {
-            return false;
-        }
-        // console.log("returning true: ", foundId)
-        return true
-    }
-
     renderShowMoreLessBtn() {
         return (
             <center>
@@ -76,6 +67,7 @@ class MainLayout extends Component {
         )
     }
 
+    // Helpers
     findImageById(id) {
         this.state.favorites.map((storedId) =>{
             if(storedId === id) {
@@ -85,6 +77,7 @@ class MainLayout extends Component {
         return -1;
     }
 
+    // Action Handlers
     handleFavorite(id) {
         swal('You have chosen ' + this.state.searchValue + ' image as your favorite.', "", "success");
         const foundId = this.findImageById(id);
@@ -129,8 +122,7 @@ class MainLayout extends Component {
             <div>
                 <Navbar addNewNote={this.addNewNote}/>
                 <div className="row container">
-                    <br />
-                    
+                    <br />              
                     <div className="input-field col s12">               
                         <i className="material-icons prefix">search</i>
                         <input id="search_image" type="text" onChange={this.handleSearchValue} value={this.state.searchValue}/>
